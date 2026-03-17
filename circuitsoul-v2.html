@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CircuitSoul Ltd — Digital Infrastructure for Africa's Next Generation of Startups</title>
+<meta name="description" content="CircuitSoul builds enterprise-grade cybersecurity, cloud infrastructure, and automation platforms engineered for African startups and SMEs. Shield · CloudOps · Flow.">
+<meta name="keywords" content="cybersecurity Africa, cloud infrastructure Nigeria, SaaS Africa, DevOps Nigeria, startup infrastructure, CircuitSoul Shield, CircuitSoul CloudOps">
+<meta property="og:title" content="CircuitSoul — Digital Backbone for Africa's Startups">
+<meta property="og:description" content="Security-first infrastructure platforms powering the next generation of African technology companies.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CircuitSoul Ltd","url":"https://circuitsoul.io","description":"Digital infrastructure platforms for African startups and SMEs","foundingLocation":{"@type":"Place","name":"Nigeria"},"areaServed":"Africa"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Geist+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════ */
+:root{
+  --ink:#03080f;
+  --ink2:#060e1c;
+  --ink3:#0a1628;
+  --ink4:#0e1e3a;
+  --ink5:#162447;
+  --surface:rgba(255,255,255,0.035);
+  --surface2:rgba(255,255,255,0.06);
+  --surface3:rgba(255,255,255,0.09);
+  --rim:rgba(255,255,255,0.07);
+  --rim2:rgba(255,255,255,0.13);
+  --rim3:rgba(255,255,255,0.22);
+  --arc:#1557ff;
+  --arc2:#3d78ff;
+  --arc3:#6699ff;
+  --arc-glow:rgba(21,87,255,0.22);
+  --arc-glow2:rgba(21,87,255,0.08);
+  --volt:#00f2a0;
+  --volt2:#00d488;
+  --volt-glow:rgba(0,242,160,0.15);
+  --amber:#f59e0b;
+  --red:#ef4444;
+  --text:#dde8f8;
+  --text2:#8fa8cc;
+  --text3:#4d6585;
+  --text4:#2a3d55;
+  --font-d:'Cabinet Grotesk',sans-serif;
+  --font-b:'Instrument Sans',sans-serif;
+  --font-m:'Geist Mono',monospace;
+  --r4:4px;--r8:8px;--r12:12px;--r16:16px;--r20:20px;--r24:24px;
+  --shadow-card:0 1px 0 rgba(255,255,255,0.04) inset, 0 24px 48px rgba(0,0,0,0.35);
+  --shadow-glow-arc:0 0 40px rgba(21,87,255,0.2),0 0 80px rgba(21,87,255,0.08);
+  --shadow-glow-volt:0 0 24px rgba(0,242,160,0.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+body{
+  background:var(--ink);
+  color:var(--text);
+  font-family:var(--font-b);
+  font-weight:400;
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:default;
+}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--font-b)}
+img{display:block}
+
+/* ═══════════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════════ */
+h1,h2,h3,h4,h5{font-family:var(--font-d);line-height:1.1;letter-spacing:-0.025em;color:var(--text)}
+h1{font-size:clamp(2.6rem,5.5vw,5rem);font-weight:900}
+h2{font-size:clamp(1.9rem,3.5vw,3rem);font-weight:800}
+h3{font-size:clamp(1.15rem,2vw,1.45rem);font-weight:700}
+h4{font-size:1rem;font-weight:700}
+p{color:var(--text2);font-size:.97rem;line-height:1.75}
+
+/* ═══════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════ */
+.wrap{max-width:1240px;margin:0 auto;padding:0 1.75rem}
+.section{padding:7rem 0}
+.section-sm{padding:4rem 0}
+
+/* ═══════════════════════════════════════════════
+   GRAIN OVERLAY
+═══════════════════════════════════════════════ */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.022;mix-blend-mode:overlay;
+}
+
+/* ═══════════════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════════════ */
+.cursor{
+  position:fixed;width:10px;height:10px;
+  background:var(--arc2);border-radius:50%;
+  pointer-events:none;z-index:10000;
+  transform:translate(-50%,-50%);
+  transition:transform .08s,width .2s,height .2s,background .2s;
+  mix-blend-mode:screen;
+}
+.cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1px solid rgba(61,120,255,0.4);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:transform .18s cubic-bezier(.25,.46,.45,.94),width .3s,height .3s,border-color .3s;
+}
+
+/* ═══════════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  padding:.9rem 1.75rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(3,8,15,.7);
+  backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid var(--rim);
+  transition:all .35s;
+}
+#nav.scrolled{background:rgba(3,8,15,.92);border-bottom-color:var(--rim2)}
+.nav-logo{
+  display:flex;align-items:center;gap:.65rem;
+  font-family:var(--font-d);font-weight:900;font-size:1.18rem;
+  letter-spacing:-.04em;color:var(--text);
+}
+.nav-mark{
+  width:30px;height:30px;border-radius:7px;
+  background:linear-gradient(135deg,var(--arc),var(--volt));
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;position:relative;overflow:hidden;
+}
+.nav-mark::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.25) 50%,transparent 60%);
+  animation:sheen 3s infinite 1s;
+}
+@keyframes sheen{0%,100%{transform:translateX(-120%)}50%{transform:translateX(120%)}}
+.nav-links{display:flex;align-items:center;gap:.15rem;list-style:none}
+.nav-links a{
+  padding:.48rem .82rem;font-size:.855rem;font-weight:500;
+  color:var(--text3);border-radius:var(--r8);
+  transition:color .2s,background .2s;letter-spacing:.01em;
+}
+.nav-links a:hover{color:var(--text);background:var(--surface2)}
+.nav-links a.on{color:var(--text)}
+.nav-end{display:flex;align-items:center;gap:.6rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.58rem 1.3rem;font-family:var(--font-b);
+  font-size:.855rem;font-weight:500;border-radius:var(--r8);
+  border:none;transition:all .2s;letter-spacing:.01em;
+}
+.btn-wire{background:transparent;border:1px solid var(--rim2);color:var(--text2)}
+.btn-wire:hover{border-color:var(--arc2);color:var(--text);background:var(--arc-glow2)}
+.btn-solid{background:var(--arc);color:#fff}
+.btn-solid:hover{background:var(--arc2);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,87,255,.38)}
+.btn-volt{background:transparent;border:1px solid var(--volt);color:var(--volt)}
+.btn-volt:hover{background:var(--volt-glow);transform:translateY(-1px)}
+.btn-lg{padding:.82rem 1.9rem;font-size:.97rem;border-radius:var(--r12)}
+.hamburger{display:none;background:none;border:1px solid var(--rim2);color:var(--text2);padding:.45rem .7rem;border-radius:var(--r8);font-size:1rem}
+.mob-menu{
+  display:none;position:fixed;top:58px;left:0;right:0;
+  background:rgba(3,8,15,.97);border-bottom:1px solid var(--rim);
+  z-index:499;padding:1.2rem 1.75rem;backdrop-filter:blur(20px);
+}
+.mob-menu.open{display:block}
+.mob-menu ul{list-style:none;display:flex;flex-direction:column;gap:.2rem}
+.mob-menu ul a{display:block;padding:.75rem 1rem;color:var(--text2);border-radius:var(--r8);font-size:.95rem}
+.mob-menu ul a:hover{background:var(--surface2);color:var(--text)}
+.mob-end{display:flex;gap:.65rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--rim)}
+
+/* ═══════════════════════════════════════════════
+   PAGE SYSTEM
+═══════════════════════════════════════════════ */
+.page{display:none;min-height:100vh;padding-top:58px}
+.page.on{display:block}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero{
+  position:relative;min-height:calc(100vh - 58px);
+  display:flex;align-items:center;overflow:hidden;
+  padding:5rem 0 4rem;
+}
+/* Dot matrix background */
+.hero-dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(61,120,255,.18) 1px,transparent 1px);
+  background-size:36px 36px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 20%,transparent 100%);
+  animation:dotPulse 8s ease-in-out infinite;
+}
+@keyframes dotPulse{0%,100%{opacity:.4}50%{opacity:.7}}
+/* Circuit lines */
+.hero-circuit{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.circuit-line{position:absolute;background:linear-gradient(90deg,transparent,rgba(21,87,255,.25),transparent);height:1px}
+.circuit-line.v{background:linear-gradient(180deg,transparent,rgba(21,87,255,.2),transparent);width:1px;height:100%}
+.circuit-node{
+  position:absolute;width:5px;height:5px;
+  border-radius:50%;border:1px solid rgba(21,87,255,.5);
+  background:rgba(21,87,255,.2);
+}
+/* Radial glow blobs */
+.hero-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+.blob1{width:700px;height:500px;background:rgba(21,87,255,.1);top:-100px;right:-150px}
+.blob2{width:500px;height:500px;background:rgba(0,242,160,.06);bottom:-100px;left:-100px}
+.blob3{width:300px;height:300px;background:rgba(21,87,255,.08);top:40%;left:38%;animation:blobFloat 12s ease-in-out infinite}
+@keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(20px,-30px) scale(1.05)}66%{transform:translate(-15px,20px) scale(.95)}}
+.hero-inner{position:relative;z-index:2;max-width:860px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--font-m);font-size:.72rem;
+  color:var(--volt);letter-spacing:.12em;text-transform:uppercase;
+  background:rgba(0,242,160,.07);border:1px solid rgba(0,242,160,.2);
+  padding:.35rem .95rem;border-radius:100px;margin-bottom:1.75rem;
+}
+.hero-eyebrow::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--volt);box-shadow:var(--shadow-glow-volt);
+  animation:blip 2s ease-in-out infinite;
+}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.25}}
+.hero-h1{
+  margin-bottom:1.75rem;
+  background:linear-gradient(160deg,#ffffff 30%,#8fa8cc 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--arc2),var(--volt));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{font-size:1.12rem;color:var(--text2);max-width:580px;margin-bottom:2.75rem;line-height:1.8}
+.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:3.5rem}
+/* Stat strip */
+.hero-stats{
+  display:flex;gap:0;border:1px solid var(--rim);
+  border-radius:var(--r16);overflow:hidden;width:fit-content;
+}
+.h-stat{
+  padding:1rem 1.75rem;
+  border-right:1px solid var(--rim);
+  background:var(--surface);
+}
+.h-stat:last-child{border-right:none}
+.h-stat-n{
+  font-family:var(--font-d);font-size:1.8rem;font-weight:900;
+  color:var(--text);letter-spacing:-.04em;line-height:1;margin-bottom:.2rem;
+}
+.h-stat-l{font-family:var(--font-m);font-size:.67rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em}
+/* Dashboard widget */
+.hero-dash-wrap{
+  position:absolute;right:-3%;top:50%;transform:translateY(-50%);
+  width:500px;z-index:3;
+  animation:dashFloat 8s ease-in-out infinite;
+}
+@keyframes dashFloat{0%,100%{transform:translateY(-50%) rotate(0deg)}50%{transform:translateY(calc(-50% - 12px)) rotate(.3deg)}}
+.hero-dash{
+  background:var(--ink2);
+  border:1px solid var(--rim2);
+  border-radius:var(--r20);
+  overflow:hidden;
+  box-shadow:var(--shadow-card),var(--shadow-glow-arc);
+}
+.dash-chrome{
+  background:var(--ink3);
+  border-bottom:1px solid var(--rim);
+  padding:.8rem 1.1rem;
+  display:flex;align-items:center;gap:.55rem;
+}
+.chrome-dots{display:flex;gap:.38rem}
+.cd{width:10px;height:10px;border-radius:50%}
+.cd-r{background:#ff5f57}.cd-y{background:#febc2e}.cd-g{background:#28c840}
+.chrome-tab{
+  flex:1;margin-left:.6rem;
+  background:var(--ink4);border:1px solid var(--rim);
+  border-radius:6px;padding:.3rem .75rem;
+  font-family:var(--font-m);font-size:.68rem;color:var(--text3);
+}
+.dash-body{padding:1.25rem 1.25rem 1rem}
+/* Metric row */
+.d-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin-bottom:.9rem}
+.d-tile{
+  background:var(--ink3);border:1px solid var(--rim);
+  border-radius:var(--r12);padding:.9rem;position:relative;overflow:hidden;
+}
+.d-tile::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.d-tile.blue::before{background:linear-gradient(90deg,var(--arc),var(--arc2))}
+.d-tile.green::before{background:linear-gradient(90deg,var(--volt2),var(--volt))}
+.d-tile.amber::before{background:linear-gradient(90deg,#d97706,var(--amber))}
+.d-lbl{font-family:var(--font-m);font-size:.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:.09em;margin-bottom:.35rem}
+.d-val{font-family:var(--font-d);font-size:1.35rem;font-weight:900;color:var(--text);line-height:1;margin-bottom:.2rem}
+.d-chg{font-size:.68rem;display:flex;align-items:center;gap:.25rem}
+.d-chg.up{color:var(--volt)}.d-chg.dn{color:var(--red)}
+/* Threat map */
+.d-map{
+  background:var(--ink3);border:1px solid var(--rim);
+  border-radius:var(--r12);padding:1rem;margin-bottom:.9rem;
+}
+.d-map-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
+.d-map-title{font-family:var(--font-m);font-size:.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:.09em}
+.d-map-live{display:flex;align-items:center;gap:.35rem;font-family:var(--font-m);font-size:.62rem;color:var(--volt)}
+.d-map-live::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--volt);animation:blip 1.5s infinite}
+/* Sparkline bars */
+.spark{display:flex;align-items:flex-end;gap:3px;height:52px;padding:0 .25rem}
+.sp{flex:1;border-radius:3px 3px 0 0;transition:height .4s ease;min-height:4px;cursor:pointer}
+.sp.arc{background:var(--arc);opacity:.35}
+.sp.arc.hi{opacity:1}
+.sp.volt{background:var(--volt);opacity:.25}
+.sp.volt.hi{opacity:.9}
+/* Event log */
+.d-log{display:flex;flex-direction:column;gap:.35rem}
+.d-evt{
+  display:flex;align-items:center;gap:.6rem;
+  background:var(--ink3);border:1px solid var(--rim);
+  border-radius:var(--r8);padding:.48rem .75rem;
+  font-size:.72rem;
+}
+.d-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.d-dot.ok{background:var(--volt);box-shadow:0 0 6px var(--volt)}
+.d-dot.warn{background:var(--amber);box-shadow:0 0 6px var(--amber)}
+.d-dot.err{background:var(--red);box-shadow:0 0 6px var(--red)}
+.d-evt-text{flex:1;color:var(--text2)}
+.d-evt-time{font-family:var(--font-m);color:var(--text4);font-size:.62rem}
+/* Compliance bar */
+.comp-bar{height:4px;background:var(--ink4);border-radius:2px;overflow:hidden;margin-top:.5rem}
+.comp-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--arc),var(--volt));animation:compLoad 1.8s ease-out both}
+@keyframes compLoad{from{width:0%}to{width:var(--w)}}
+
+/* ═══════════════════════════════════════════════
+   TICKER / MARQUEE
+═══════════════════════════════════════════════ */
+.ticker{
+  border-top:1px solid var(--rim);border-bottom:1px solid var(--rim);
+  background:var(--surface);overflow:hidden;padding:.55rem 0;
+}
+.ticker-track{
+  display:flex;gap:0;width:max-content;
+  animation:tick 35s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tick-item{
+  display:flex;align-items:center;gap:.5rem;
+  padding:0 2.5rem;
+  font-family:var(--font-m);font-size:.7rem;
+  color:var(--text3);white-space:nowrap;
+  border-right:1px solid var(--rim);
+}
+.tick-item span{color:var(--volt)}
+.tick-item .tick-up{color:var(--volt)}
+.tick-item .tick-dn{color:var(--red)}
+
+/* ═══════════════════════════════════════════════
+   SECTION LABELS
+═══════════════════════════════════════════════ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-m);font-size:.68rem;
+  color:var(--arc3);text-transform:uppercase;letter-spacing:.12em;
+  border:1px solid rgba(102,153,255,.2);background:rgba(102,153,255,.06);
+  padding:.3rem .85rem;border-radius:100px;margin-bottom:1.1rem;
+}
+.eyebrow.volt{color:var(--volt);border-color:rgba(0,242,160,.2);background:rgba(0,242,160,.05)}
+.eyebrow.amber{color:var(--amber);border-color:rgba(245,158,11,.22);background:rgba(245,158,11,.06)}
+.s-title{margin-bottom:1rem}
+.s-sub{font-size:1.05rem;color:var(--text2);max-width:600px;line-height:1.75;margin-bottom:3.5rem}
+.s-sub.wide{max-width:760px}
+
+/* ═══════════════════════════════════════════════
+   BENTO GRID — PLATFORMS
+═══════════════════════════════════════════════ */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1.1rem}
+
+/* Card base */
+.bc{
+  background:var(--ink2);border:1px solid var(--rim);
+  border-radius:var(--r20);padding:2rem;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+  box-shadow:var(--shadow-card);
+}
+.bc:hover{border-color:var(--rim3);transform:translateY(-3px);box-shadow:var(--shadow-card),0 12px 40px rgba(0,0,0,.4)}
+/* Inner glow on hover */
+.bc::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(21,87,255,.06),transparent 60%);
+  opacity:0;transition:opacity .4s;pointer-events:none;
+}
+.bc:hover::after{opacity:1}
+/* Grid spans */
+.bc-wide{grid-column:span 7}
+.bc-tall{grid-column:span 5}
+.bc-half{grid-column:span 6}
+.bc-connect{grid-column:span 12}
+.bc-full{grid-column:span 12}
+@media(max-width:900px){.bc-wide,.bc-tall,.bc-half,.bc-connect{grid-column:span 12}}
+
+/* Product icon */
+.p-icon{
+  width:50px;height:50px;border-radius:var(--r12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:1.4rem;position:relative;
+}
+.p-icon::before{content:'';position:absolute;inset:0;border-radius:var(--r12);opacity:.12}
+.p-icon.shield{background:rgba(21,87,255,.1);border:1px solid rgba(21,87,255,.25)}
+.p-icon.cloud{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25)}
+.p-icon.flow{background:rgba(0,242,160,.08);border:1px solid rgba(0,242,160,.22)}
+.p-icon.connect{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22)}
+.p-brand{font-family:var(--font-m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem}
+.p-brand.arc{color:var(--arc3)}
+.p-brand.purple{color:#c4b5fd}
+.p-brand.volt{color:var(--volt)}
+.p-brand.amber{color:var(--amber)}
+.bc h3{font-size:1.2rem;margin-bottom:.6rem;color:var(--text)}
+.bc p{font-size:.875rem;margin-bottom:1.35rem;line-height:1.65}
+/* Feature chips */
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+.chip{
+  font-family:var(--font-m);font-size:.65rem;
+  padding:.22rem .65rem;border-radius:100px;letter-spacing:.03em;
+}
+.chip.arc{background:rgba(21,87,255,.1);border:1px solid rgba(21,87,255,.22);color:#7aa8ff}
+.chip.volt{background:rgba(0,242,160,.07);border:1px solid rgba(0,242,160,.18);color:var(--volt)}
+.chip.pur{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.18);color:#c4b5fd}
+.chip.amb{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.18);color:var(--amber)}
+/* Card link */
+.card-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.83rem;font-weight:600;font-family:var(--font-d);
+  color:var(--arc2);background:none;border:none;padding:0;
+  transition:gap .2s,color .2s;
+}
+.card-link:hover{gap:.7rem;color:var(--arc3)}
+.card-link.volt-l{color:var(--volt)}
+.card-link.volt-l:hover{color:var(--volt2)}
+/* Coming soon banner */
+.cs-banner{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-m);font-size:.65rem;letter-spacing:.1em;
+  text-transform:uppercase;
+  background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);
+  color:var(--amber);padding:.28rem .82rem;border-radius:100px;
+  margin-bottom:.9rem;
+}
+/* Waitlist input inline */
+.waitlist-inline{display:flex;gap:.6rem;margin-top:1.25rem;flex-wrap:wrap}
+.wi-input{
+  flex:1;min-width:200px;
+  background:var(--ink3);border:1px solid var(--rim2);
+  border-radius:var(--r8);padding:.68rem 1rem;
+  font-family:var(--font-b);font-size:.86rem;color:var(--text);outline:none;
+  transition:border-color .2s;
+}
+.wi-input::placeholder{color:var(--text4)}
+.wi-input:focus{border-color:var(--arc2)}
+
+/* Shield visual inside card */
+.shield-orb{
+  position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);
+  width:160px;height:160px;pointer-events:none;
+}
+.s-ring{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(21,87,255,.22);
+}
+.s-ring:nth-child(1){inset:0;animation:rot 22s linear infinite}
+.s-ring:nth-child(2){inset:18px;border-color:rgba(0,242,160,.18);animation:rot 14s linear infinite reverse}
+.s-ring:nth-child(3){inset:36px;border-color:rgba(21,87,255,.15);animation:rot 9s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.s-core{
+  position:absolute;inset:52px;
+  background:radial-gradient(circle,rgba(0,242,160,.15),rgba(21,87,255,.08));
+  border-radius:50%;border:1px solid rgba(0,242,160,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+  box-shadow:0 0 24px rgba(0,242,160,.2);
+}
+.s-orb-dot{
+  position:absolute;width:7px;height:7px;border-radius:50%;
+}
+/* CloudOps bar chart */
+.cloud-chart{position:absolute;right:1.5rem;bottom:1.5rem;display:flex;align-items:flex-end;gap:4px}
+.cc-bar{width:14px;border-radius:3px 3px 0 0;background:rgba(139,92,246,.5)}
+.cc-bar.hi{background:#8b5cf6}
+/* Flow pipeline */
+.flow-pipe{display:flex;align-items:center;gap:.4rem;margin-top:.5rem;flex-wrap:wrap}
+.fp-step{
+  background:var(--ink3);border:1px solid var(--rim);
+  border-radius:var(--r8);padding:.35rem .75rem;
+  font-family:var(--font-m);font-size:.65rem;color:var(--text2);
+  display:flex;align-items:center;gap:.3rem;
+}
+.fp-step .fp-dot{width:5px;height:5px;border-radius:50%;background:var(--volt);box-shadow:0 0 5px var(--volt)}
+.fp-arrow{color:var(--text4);font-size:.8rem}
+
+/* ═══════════════════════════════════════════════
+   ECOSYSTEM / SERVICES
+═══════════════════════════════════════════════ */
+.eco-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:1px;
+  background:var(--rim);
+  border:1px solid var(--rim);
+  border-radius:var(--r20);overflow:hidden;
+}
+.eco-cell{
+  background:var(--ink2);padding:1.65rem;
+  transition:background .25s;position:relative;
+  overflow:hidden;
+}
+.eco-cell:hover{background:var(--ink3)}
+.eco-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(21,87,255,.3),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.eco-cell:hover::before{opacity:1}
+.eco-cell-icon{font-size:1.45rem;margin-bottom:.8rem}
+.eco-cell h4{font-size:.97rem;color:var(--text);margin-bottom:.38rem}
+.eco-cell p{font-size:.8rem;line-height:1.55;color:var(--text3)}
+.eco-cell-num{
+  position:absolute;top:1.2rem;right:1.2rem;
+  font-family:var(--font-m);font-size:.6rem;color:var(--text4);
+}
+
+/* ═══════════════════════════════════════════════
+   INDUSTRIES
+═══════════════════════════════════════════════ */
+.ind-scroll{overflow-x:auto;padding-bottom:.5rem;scrollbar-width:none}
+.ind-scroll::-webkit-scrollbar{display:none}
+.ind-row{display:flex;gap:.75rem;min-width:max-content}
+.ind-card{
+  display:flex;align-items:center;gap:.75rem;
+  padding:.85rem 1.4rem;
+  background:var(--ink2);border:1px solid var(--rim);
+  border-radius:100px;font-size:.875rem;font-weight:500;
+  color:var(--text2);transition:all .25s;white-space:nowrap;cursor:default;
+}
+.ind-card:hover{border-color:var(--arc2);color:var(--text);background:var(--arc-glow2)}
+.ind-icon{font-size:1rem}
+
+/* ═══════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════ */
+.faq-wrap{max-width:820px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--rim);overflow:hidden}
+.faq-q{
+  width:100%;background:none;border:none;text-align:left;
+  padding:1.5rem 0;font-family:var(--font-d);font-size:1rem;
+  font-weight:700;color:var(--text);display:flex;
+  justify-content:space-between;align-items:center;gap:1rem;
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--arc2)}
+.faq-q.open{color:var(--arc2)}
+.faq-chevron{width:24px;height:24px;border-radius:50%;border:1px solid var(--rim2);
+  display:flex;align-items:center;justify-content:center;font-size:.65rem;
+  flex-shrink:0;transition:transform .35s,background .2s,border-color .2s;color:var(--text3)}
+.faq-q.open .faq-chevron{transform:rotate(180deg);background:var(--arc-glow2);border-color:var(--arc);color:var(--arc2)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1),padding .3s}
+.faq-a.open{max-height:500px;padding-bottom:1.5rem}
+.faq-a p{font-size:.92rem;line-height:1.75;color:var(--text2)}
+
+/* ═══════════════════════════════════════════════
+   CTA BAND
+═══════════════════════════════════════════════ */
+.cta-band{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--ink3),var(--ink4));
+  border:1px solid var(--rim);border-radius:var(--r24);
+  padding:5rem 3rem;text-align:center;margin:0 0 4rem;
+}
+.cta-band::before{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:700px;height:400px;
+  background:radial-gradient(ellipse,rgba(21,87,255,.12),transparent 70%);
+  pointer-events:none;
+}
+.cta-band h2{margin-bottom:1rem}
+.cta-band p{font-size:1.05rem;margin-bottom:2.5rem;max-width:540px;margin-left:auto;margin-right:auto}
+.cta-acts{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════════════
+   PRODUCTS PAGE
+═══════════════════════════════════════════════ */
+.prod-hero{padding:4rem 0 2rem;border-bottom:1px solid var(--rim)}
+.prod-tab-row{display:flex;gap:.25rem;background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r12);padding:.25rem;width:fit-content;margin-bottom:3.5rem}
+.ptab{
+  padding:.6rem 1.3rem;border-radius:var(--r8);
+  font-size:.855rem;font-weight:600;color:var(--text3);
+  background:none;border:none;font-family:var(--font-b);
+  transition:all .2s;display:flex;align-items:center;gap:.45rem;
+}
+.ptab.on{background:var(--arc);color:#fff}
+.ptab:hover:not(.on){color:var(--text2);background:var(--surface2)}
+.prod-detail{display:none}
+.prod-detail.on{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+@media(max-width:900px){.prod-detail.on{grid-template-columns:1fr}}
+.prod-problem{
+  background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);
+  border-radius:var(--r12);padding:1.4rem;margin-bottom:2rem;
+}
+.prod-problem-lbl{font-family:var(--font-m);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#f87171;margin-bottom:.5rem}
+.prod-problem p{font-size:.88rem;line-height:1.7;color:var(--text2)}
+.feat-ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
+.feat-ul li{display:flex;gap:.75rem;align-items:flex-start;font-size:.88rem;color:var(--text2);line-height:1.6}
+.feat-ul li::before{content:'';width:16px;height:16px;border-radius:50%;background:var(--arc-glow2);border:1px solid var(--arc);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 6l2.5 2.5 4.5-4.5' stroke='%231557ff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.prod-dash{
+  background:var(--ink2);border:1px solid var(--rim2);
+  border-radius:var(--r20);overflow:hidden;
+  box-shadow:var(--shadow-card);
+  position:sticky;top:80px;
+}
+
+/* ═══════════════════════════════════════════════
+   SERVICES PAGE
+═══════════════════════════════════════════════ */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.1rem}
+.svc-card{
+  background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r20);
+  padding:2rem;transition:all .3s;position:relative;overflow:hidden;
+}
+.svc-card:hover{border-color:var(--rim2);transform:translateY(-3px)}
+.svc-card-n{position:absolute;top:1.5rem;right:1.5rem;font-family:var(--font-m);font-size:.62rem;color:var(--text4)}
+.svc-icon-wrap{width:44px;height:44px;border-radius:var(--r12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.1rem}
+.svc-card h3{font-size:1.05rem;margin-bottom:.5rem}
+.svc-card p{font-size:.84rem;line-height:1.65;color:var(--text2)}
+.svc-card-tag{display:inline-block;margin-top:.85rem;font-family:var(--font-m);font-size:.62rem;color:var(--text3);background:var(--surface);border:1px solid var(--rim);padding:.2rem .6rem;border-radius:4px}
+
+/* ═══════════════════════════════════════════════
+   CONNECT PAGE
+═══════════════════════════════════════════════ */
+.connect-hero-wrap{text-align:center;padding:5rem 0 3rem;position:relative}
+.connect-hero-wrap::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:600px;height:300px;
+  background:radial-gradient(ellipse,rgba(245,158,11,.08),transparent 70%);
+  pointer-events:none;
+}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;margin-top:3rem}
+.how-card{
+  background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r20);
+  padding:2rem;text-align:left;
+}
+.how-num{
+  font-family:var(--font-m);font-size:.65rem;color:var(--arc3);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;
+}
+.how-card h4{margin-bottom:.5rem;font-size:1rem}
+.how-card p{font-size:.84rem;color:var(--text2);line-height:1.6}
+.cat-grid{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.5rem}
+
+/* ═══════════════════════════════════════════════
+   BLOG PAGE
+═══════════════════════════════════════════════ */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+.blog-card{
+  background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r20);
+  overflow:hidden;transition:all .3s;cursor:pointer;
+}
+.blog-card:hover{border-color:var(--rim2);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.blog-thumb{
+  height:188px;display:flex;align-items:center;
+  justify-content:center;font-size:2.8rem;
+  position:relative;overflow:hidden;
+}
+.blog-thumb.t1{background:linear-gradient(135deg,rgba(21,87,255,.12),rgba(0,242,160,.07))}
+.blog-thumb.t2{background:linear-gradient(135deg,rgba(139,92,246,.12),rgba(21,87,255,.07))}
+.blog-thumb.t3{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(21,87,255,.07))}
+.blog-thumb.t4{background:linear-gradient(135deg,rgba(21,87,255,.08),rgba(139,92,246,.1))}
+.blog-thumb.t5{background:linear-gradient(135deg,rgba(0,242,160,.07),rgba(21,87,255,.1))}
+.blog-thumb.t6{background:linear-gradient(135deg,rgba(239,68,68,.07),rgba(21,87,255,.08))}
+.blog-thumb::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(6,14,28,.8));
+}
+.blog-body{padding:1.5rem}
+.blog-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;flex-wrap:wrap}
+.blog-cat{font-family:var(--font-m);font-size:.63rem;text-transform:uppercase;letter-spacing:.08em;color:var(--arc3)}
+.blog-date{font-size:.72rem;color:var(--text3)}
+.blog-read-time{font-size:.72rem;color:var(--text4)}
+.blog-card h3{font-size:.97rem;font-weight:700;color:var(--text);margin-bottom:.55rem;line-height:1.4}
+.blog-card p{font-size:.81rem;line-height:1.6;margin-bottom:.9rem}
+.blog-footer{display:flex;align-items:center;justify-content:space-between}
+.blog-author{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:var(--text3)}
+.blog-av{width:24px;height:24px;border-radius:50%;background:var(--arc-glow2);border:1px solid var(--arc);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--arc3)}
+.blog-arrow{font-size:.8rem;color:var(--arc3)}
+/* Sub strip */
+.sub-strip{max-width:520px;margin:0 auto;text-align:center}
+.sub-row{display:flex;gap:.65rem;margin-top:1.25rem;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════════════
+   ABOUT PAGE
+═══════════════════════════════════════════════ */
+.about-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:5rem}
+@media(max-width:900px){.about-split{grid-template-columns:1fr}}
+.about-vals{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.val-card{background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r16);padding:1.5rem}
+.val-icon{font-size:1.35rem;margin-bottom:.75rem}
+.val-card h4{font-size:.93rem;margin-bottom:.38rem}
+.val-card p{font-size:.8rem;color:var(--text3)}
+.metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:5rem}
+@media(max-width:700px){.metrics-row{grid-template-columns:repeat(2,1fr)}}
+.m-card{background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r16);padding:1.75rem;text-align:center}
+.m-num{font-family:var(--font-d);font-size:2.4rem;font-weight:900;line-height:1;margin-bottom:.35rem}
+.m-lbl{font-size:.78rem;color:var(--text3)}
+.profile-card{
+  background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r20);
+  padding:2.5rem;text-align:center;position:relative;overflow:hidden;
+}
+.profile-card::before{
+  content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:400px;height:200px;
+  background:radial-gradient(ellipse,rgba(21,87,255,.1),transparent);
+}
+.nsa-pill{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:var(--font-m);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;
+  background:rgba(0,242,160,.07);border:1px solid rgba(0,242,160,.18);
+  color:var(--volt);padding:.28rem .7rem;border-radius:4px;
+  margin-top:.75rem;
+}
+
+/* ═══════════════════════════════════════════════
+   CONTACT PAGE
+═══════════════════════════════════════════════ */
+.contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.c-info-block{display:flex;gap:.85rem;align-items:flex-start;background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r12);padding:1.2rem;margin-bottom:.85rem}
+.c-info-icon{font-size:1.15rem;flex-shrink:0;margin-top:.1rem}
+.c-info-lbl{font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.c-info-val{font-family:var(--font-m);font-size:.82rem;color:var(--arc2)}
+.c-form{background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r20);padding:2.5rem}
+.fg{display:flex;flex-direction:column;gap:.38rem;margin-bottom:.95rem}
+.fg label{font-size:.78rem;font-weight:600;color:var(--text2)}
+.fg input,.fg textarea,.fg select{
+  background:var(--ink3);border:1px solid var(--rim2);border-radius:var(--r8);
+  padding:.7rem .95rem;font-family:var(--font-b);font-size:.88rem;
+  color:var(--text);outline:none;transition:border-color .2s;width:100%;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--text4)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--arc2)}
+.fg textarea{resize:vertical;min-height:100px;font-family:var(--font-b)}
+.fg select option{background:var(--ink2)}
+.fg-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:480px){.fg-2{grid-template-columns:1fr}}
+.socials{display:flex;gap:.5rem;margin-top:1.1rem}
+.social{
+  width:36px;height:36px;border:1px solid var(--rim2);border-radius:var(--r8);
+  display:flex;align-items:center;justify-content:center;font-size:.75rem;
+  color:var(--text3);transition:all .2s;cursor:pointer;
+}
+.social:hover{border-color:var(--arc2);color:var(--text);background:var(--arc-glow2)}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer{border-top:1px solid var(--rim);padding:4rem 0 2rem;margin-top:4rem}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+@media(max-width:900px){.foot-top{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.foot-top{grid-template-columns:1fr}}
+.foot-brand p{font-size:.83rem;color:var(--text3);max-width:260px;margin-top:.75rem;line-height:1.65}
+.foot-col h5{font-family:var(--font-d);font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.06em}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.foot-col ul li a{font-size:.83rem;color:var(--text3);transition:color .2s;cursor:pointer}
+.foot-col ul li a:hover{color:var(--text2)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid var(--rim);flex-wrap:wrap;gap:1rem}
+.foot-bottom p{font-size:.77rem;color:var(--text4)}
+.foot-legal{display:flex;gap:1.5rem}
+.foot-legal a{font-size:.77rem;color:var(--text4);cursor:pointer}
+.foot-legal a:hover{color:var(--text3)}
+
+/* ═══════════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════════ */
+.toast{
+  position:fixed;bottom:2rem;right:2rem;z-index:9998;
+  background:var(--ink3);border:1px solid var(--volt);border-radius:var(--r12);
+  padding:1rem 1.5rem;font-size:.86rem;color:var(--volt);
+  transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 16px 48px rgba(0,0,0,.5),var(--shadow-glow-volt);
+  display:flex;align-items:center;gap:.6rem;
+}
+.toast.in{transform:translateY(0);opacity:1}
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}
+.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE UTILS
+═══════════════════════════════════════════════ */
+@media(max-width:1100px){.hero-dash-wrap{display:none}.hero-inner{max-width:100%}}
+@media(max-width:768px){
+  .nav-links,.nav-end{display:none}
+  .hamburger{display:block}
+  .hero{padding:3rem 0 2rem;min-height:auto}
+  .section{padding:4.5rem 0}
+  .cta-band{padding:3rem 1.5rem}
+  .h-stat-n{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+<div class="toast" id="toast">✓ You're on the waitlist!</div>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<nav id="nav">
+  <a class="nav-logo" onclick="go('home')">
+    <div class="nav-mark">⚡</div>
+    CircuitSoul
+  </a>
+  <ul class="nav-links">
+    <li><a onclick="go('home')" id="nl-home" class="on">Home</a></li>
+    <li><a onclick="go('products')" id="nl-products">Products</a></li>
+    <li><a onclick="go('services')" id="nl-services">Services</a></li>
+    <li><a onclick="go('connect')" id="nl-connect">Connect</a></li>
+    <li><a onclick="go('blog')" id="nl-blog">Blog</a></li>
+    <li><a onclick="go('about')" id="nl-about">About</a></li>
+    <li><a onclick="go('contact')" id="nl-contact">Contact</a></li>
+  </ul>
+  <div class="nav-end">
+    <button class="btn btn-wire" onclick="go('contact')">Request Demo</button>
+    <button class="btn btn-solid" onclick="go('products')">Explore Platforms</button>
+  </div>
+  <button class="hamburger" onclick="toggleMob()">☰</button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <ul>
+    <li><a onclick="go('home');toggleMob()">Home</a></li>
+    <li><a onclick="go('products');toggleMob()">Products</a></li>
+    <li><a onclick="go('services');toggleMob()">Services</a></li>
+    <li><a onclick="go('connect');toggleMob()">Connect</a></li>
+    <li><a onclick="go('blog');toggleMob()">Blog</a></li>
+    <li><a onclick="go('about');toggleMob()">About</a></li>
+    <li><a onclick="go('contact');toggleMob()">Contact</a></li>
+  </ul>
+  <div class="mob-end">
+    <button class="btn btn-wire" style="flex:1;justify-content:center" onclick="go('contact');toggleMob()">Demo</button>
+    <button class="btn btn-solid" style="flex:1;justify-content:center" onclick="go('products');toggleMob()">Platforms</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+  HOME PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="pg-home" class="page on">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-dots"></div>
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-blob blob3"></div>
+    <div class="hero-circuit">
+      <!-- Horizontal circuit lines -->
+      <div class="circuit-line" style="top:28%;width:40%;left:0;opacity:.6"></div>
+      <div class="circuit-line" style="top:55%;width:30%;right:0;opacity:.4"></div>
+      <div class="circuit-line" style="top:72%;width:25%;left:15%;opacity:.3"></div>
+      <!-- Vertical -->
+      <div class="circuit-line v" style="left:18%;top:0;height:45%;opacity:.4"></div>
+      <div class="circuit-line v" style="left:45%;top:30%;height:35%;opacity:.3"></div>
+      <!-- Nodes -->
+      <div class="circuit-node" style="top:28%;left:40%"></div>
+      <div class="circuit-node" style="top:55%;right:30%;width:8px;height:8px;background:rgba(0,242,160,.3);border-color:rgba(0,242,160,.5)"></div>
+      <div class="circuit-node" style="top:28%;left:18%"></div>
+    </div>
+    <div class="wrap" style="position:relative;z-index:2">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Nigeria · Built for Africa · Infrastructure-First</div>
+        <h1 class="hero-h1">The Digital Backbone<br>for Africa's <em>Next Generation</em><br>of Startups</h1>
+        <p class="hero-sub">CircuitSoul engineers cybersecurity, cloud infrastructure, and automation platforms that power African startups and SMEs — security-first architecture made accessible.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-solid btn-lg" onclick="go('contact')">Request Demo →</button>
+          <button class="btn btn-volt btn-lg" onclick="go('connect')">Get Early Access</button>
+          <button class="btn btn-wire btn-lg" onclick="go('products')">Explore Platforms</button>
+        </div>
+        <div class="hero-stats rv">
+          <div class="h-stat"><div class="h-stat-n">3</div><div class="h-stat-l">Core Platforms</div></div>
+          <div class="h-stat"><div class="h-stat-n">11+</div><div class="h-stat-l">Engineering Capabilities</div></div>
+          <div class="h-stat"><div class="h-stat-n">24/7</div><div class="h-stat-l">Threat Monitoring</div></div>
+          <div class="h-stat"><div class="h-stat-n" style="color:var(--volt)">NG</div><div class="h-stat-l">NSA Eligible</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Floating dashboard -->
+    <div class="hero-dash-wrap">
+      <div class="hero-dash">
+        <div class="dash-chrome">
+          <div class="chrome-dots"><div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div></div>
+          <div class="chrome-tab">shield.circuitsoul.io — Security Posture</div>
+        </div>
+        <div class="dash-body">
+          <div class="d-row">
+            <div class="d-tile green">
+              <div class="d-lbl">Security Score</div>
+              <div class="d-val" style="color:var(--volt)">87<span style="font-size:.8rem;font-weight:400">/100</span></div>
+              <div class="d-chg up">↑ +4 pts</div>
+              <div class="comp-bar" style="--w:87%"><div class="comp-fill" style="--w:87%"></div></div>
+            </div>
+            <div class="d-tile blue">
+              <div class="d-lbl">Threats Blocked</div>
+              <div class="d-val">2,847</div>
+              <div class="d-chg up">↑ 30d</div>
+            </div>
+            <div class="d-tile amber">
+              <div class="d-lbl">Vulnerabilities</div>
+              <div class="d-val" style="color:var(--amber)">3</div>
+              <div class="d-chg" style="color:var(--amber)">2 low · 1 med</div>
+            </div>
+          </div>
+          <div class="d-map">
+            <div class="d-map-head">
+              <span class="d-map-title">Threat Activity — 14 Days</span>
+              <span class="d-map-live">Live</span>
+            </div>
+            <div class="spark" id="sparkBars"></div>
+          </div>
+          <div class="d-log">
+            <div class="d-evt"><div class="d-dot ok"></div><span class="d-evt-text">All production systems nominal</span><span class="d-evt-time">08:14</span></div>
+            <div class="d-evt"><div class="d-dot warn"></div><span class="d-evt-text">Unpatched dep: axios@1.2.1 detected</span><span class="d-evt-time">07:32</span></div>
+            <div class="d-evt"><div class="d-dot ok"></div><span class="d-evt-text">NDPR compliance check passed ✓</span><span class="d-evt-time">06:00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+
+  <!-- CORE PLATFORMS BENTO -->
+  <section class="section">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow">Core Platforms</div>
+        <h2 class="s-title">Infrastructure Software<br>Engineered for Africa</h2>
+        <p class="s-sub">Three flagship platforms addressing the critical infrastructure gaps that throttle African technology companies: security posture, cloud operations, and operational automation.</p>
+      </div>
+      <div class="bento rv d1">
+
+        <!-- SHIELD — wide -->
+        <div class="bc bc-wide" id="shieldCard">
+          <div class="shield-orb">
+            <div class="s-ring"></div>
+            <div class="s-ring"></div>
+            <div class="s-ring"></div>
+            <div class="s-core">🛡</div>
+            <div class="s-orb-dot" style="top:10px;left:70px;background:var(--arc2);box-shadow:0 0 8px var(--arc2);width:7px;height:7px;border-radius:50%"></div>
+            <div class="s-orb-dot" style="top:72px;left:145px;background:var(--volt);box-shadow:0 0 8px var(--volt);width:7px;height:7px;border-radius:50%"></div>
+            <div class="s-orb-dot" style="bottom:12px;left:48px;background:var(--amber);box-shadow:0 0 8px var(--amber);width:7px;height:7px;border-radius:50%"></div>
+          </div>
+          <div style="max-width:calc(100% - 180px)">
+            <div class="p-icon shield">🛡</div>
+            <div class="p-brand arc">CircuitSoul Shield</div>
+            <h3>AI-Driven Cybersecurity &amp; Compliance Platform</h3>
+            <p>Enterprise-grade security intelligence for startups without dedicated security teams. Continuous threat detection, automated compliance reporting, and investor-ready posture dashboards.</p>
+            <div class="chips">
+              <span class="chip arc">Threat Detection</span>
+              <span class="chip volt">NDPR Compliance</span>
+              <span class="chip arc">Vulnerability Scanning</span>
+              <span class="chip volt">Risk Dashboards</span>
+              <span class="chip arc">Security Alerts</span>
+            </div>
+            <button class="card-link" onclick="go('products');setPTab('shield')">Explore Shield Platform →</button>
+          </div>
+        </div>
+
+        <!-- CLOUDOPS — tall -->
+        <div class="bc bc-tall">
+          <div class="p-icon cloud">☁</div>
+          <div class="p-brand purple">CircuitSoul CloudOps</div>
+          <h3>Cloud Infrastructure &amp; DevSecOps Platform</h3>
+          <p>Manage, optimize, and scale your cloud environment with security-first automation. Cut infrastructure costs, accelerate deployment pipelines, and gain complete operational visibility.</p>
+          <div class="chips">
+            <span class="chip pur">Cost Optimization</span>
+            <span class="chip arc">DevOps Pipelines</span>
+            <span class="chip pur">Multi-Cloud Monitoring</span>
+          </div>
+          <div class="cloud-chart">
+            <div class="cc-bar" style="height:28px"></div>
+            <div class="cc-bar hi" style="height:42px"></div>
+            <div class="cc-bar" style="height:20px"></div>
+            <div class="cc-bar hi" style="height:36px"></div>
+            <div class="cc-bar" style="height:50px"></div>
+            <div class="cc-bar" style="height:30px"></div>
+          </div>
+          <button class="card-link" style="color:#c4b5fd;margin-top:1rem" onclick="go('products');setPTab('cloudops')">Explore CloudOps →</button>
+        </div>
+
+        <!-- FLOW — half -->
+        <div class="bc bc-half">
+          <div class="p-icon flow">⚡</div>
+          <div class="p-brand volt">CircuitSoul Flow</div>
+          <h3>Workflow Automation &amp; Internal Tools</h3>
+          <p>Automate multi-step business processes, build internal dashboards, and connect your systems — without engineering overhead on every operational change.</p>
+          <div class="chips">
+            <span class="chip volt">Process Automation</span>
+            <span class="chip arc">System Integrations</span>
+            <span class="chip volt">Analytics</span>
+          </div>
+          <div class="flow-pipe">
+            <div class="fp-step"><span class="fp-dot"></span>Trigger</div>
+            <span class="fp-arrow">→</span>
+            <div class="fp-step"><span class="fp-dot"></span>Transform</div>
+            <span class="fp-arrow">→</span>
+            <div class="fp-step"><span class="fp-dot"></span>Route</div>
+            <span class="fp-arrow">→</span>
+            <div class="fp-step"><span class="fp-dot"></span>Notify</div>
+          </div>
+          <button class="card-link volt-l" style="margin-top:1.25rem" onclick="go('products');setPTab('flow')">Explore Flow →</button>
+        </div>
+
+        <!-- CONNECT — half -->
+        <div class="bc bc-half" style="border-color:rgba(245,158,11,.2);background:linear-gradient(135deg,var(--ink2),rgba(20,12,4,.98))">
+          <div class="cs-banner">⏳ Coming Soon — Q3 2025</div>
+          <div class="p-icon connect">🔗</div>
+          <div class="p-brand amber">CircuitSoul Connect</div>
+          <h3>The Task Marketplace for Digital Professionals</h3>
+          <p>Post tasks and connect with verified technical and creative professionals for any digital service — dev, design, cloud, security, and beyond. Escrow-protected. Africa-native.</p>
+          <div class="chips">
+            <span class="chip amb">Task Marketplace</span>
+            <span class="chip amb">Verified Pros</span>
+            <span class="chip amb">Escrow Payments</span>
+          </div>
+          <div class="waitlist-inline">
+            <input class="wi-input" type="email" placeholder="your@email.com" id="wlInline">
+            <button class="btn btn-volt" onclick="submitWL('wlInline')">Join Waitlist</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM SERVICES -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow volt">Technology Ecosystem</div>
+        <h2 class="s-title">Engineering the Infrastructure<br>Behind Modern Businesses</h2>
+        <p class="s-sub">Specialized engineering capabilities that enable organizations to adopt and scale CircuitSoul platforms — available standalone or as integrated engagement layers.</p>
+      </div>
+      <div class="eco-grid rv d1">
+        <div class="eco-cell"><div class="eco-cell-num">01</div><div class="eco-cell-icon">🤖</div><h4>AI Agents</h4><p>Autonomous agents engineered for production-grade reliability in African business environments.</p></div>
+        <div class="eco-cell"><div class="eco-cell-num">02</div><div class="eco-cell-icon">☁</div><h4>Cloud Migration</h4><p>Architecture-first migration with zero-downtime execution across AWS, GCP, and Azure.</p></div>
+        <div class="eco-cell"><div class="eco-cell-num">03</div><div class="eco-cell-icon">⚙</div><h4>Custom Software</h4><p>Full-cycle product engineering: web, mobile, backend, and API-layer systems.</p></div>
+        <div class="eco-cell"><div class="eco-cell-num">04</div><div class="eco-cell-icon">🔒</div><h4>Cybersecurity Consulting</h4><p>Penetration testing, security audits, and strategic advisory aligned to your risk tolerance.</p></div>
+        <div class="eco-cell"><div class="eco-cell-num">05</div><div class="eco-cell-icon">🎨</div><h4>UI/UX Design</h4><p>Product design and design systems for complex infrastructure and data-heavy interfaces.</p></div>
+        <div class="eco-cell"><div class="eco-cell-num">06</div><div class="eco-cell-icon">🎓</div><h4>Technology Training</h4><p>Structured programs: cloud architecture, DevSecOps, and platform engineering.</p></div>
+        <div class="eco-cell"><div class="eco-cell-num">07</div><div class="eco-cell-icon">🖥</div><h4>Hardware Procurement</h4><p>Enterprise hardware sourcing, configuration, and deployment with lifecycle management.</p></div>
+        <div class="eco-cell"><div class="eco-cell-num">08</div><div class="eco-cell-icon">🛠</div><h4>IT Support</h4><p>Managed IT support for growing companies — helpdesk to full infrastructure management.</p></div>
+        <div class="eco-cell"><div class="eco-cell-num">09</div><div class="eco-cell-icon">📱</div><h4>Mobile Development</h4><p>Cross-platform and native mobile apps optimized for African network conditions.</p></div>
+        <div class="eco-cell"><div class="eco-cell-num">10</div><div class="eco-cell-icon">🔭</div><h4>Technology Consulting</h4><p>Architecture decisions, vendor selection, and technology roadmap planning.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <button class="btn btn-wire btn-lg" onclick="go('services')">View All Services →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow">Target Industries</div>
+        <h2 class="s-title" style="margin-bottom:2rem">Built for Technology-Driven Businesses</h2>
+      </div>
+      <div class="ind-scroll rv d1">
+        <div class="ind-row">
+          <div class="ind-card"><span class="ind-icon">🚀</span>Technology Startups</div>
+          <div class="ind-card"><span class="ind-icon">🏢</span>SMEs &amp; Scale-ups</div>
+          <div class="ind-card"><span class="ind-icon">💳</span>Fintech Companies</div>
+          <div class="ind-card"><span class="ind-icon">☁</span>SaaS Businesses</div>
+          <div class="ind-card"><span class="ind-icon">🏦</span>Digital Finance</div>
+          <div class="ind-card"><span class="ind-icon">🛒</span>E-commerce Platforms</div>
+          <div class="ind-card"><span class="ind-icon">🎓</span>EdTech Companies</div>
+          <div class="ind-card"><span class="ind-icon">🏥</span>HealthTech Firms</div>
+          <div class="ind-card"><span class="ind-icon">🚚</span>Logistics Tech</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="rv" style="text-align:center;margin-bottom:3.5rem">
+        <div class="eyebrow" style="margin:0 auto 1rem">Questions</div>
+        <h2>Frequently Asked</h2>
+      </div>
+      <div class="faq-wrap rv">
+        <div class="faq-item">
+          <button class="faq-q" onclick="faq(this)">How does CircuitSoul Shield improve cybersecurity for startups without security teams?<span class="faq-chevron">▼</span></button>
+          <div class="faq-a"><p>Shield is engineered specifically for this scenario. The platform deploys continuous AI-driven monitoring across your infrastructure with zero manual configuration overhead. It detects vulnerabilities and anomalous activity, generates automated compliance documentation against NDPR, ISO 27001, SOC 2, and PCI-DSS, and surfaces investor-ready security posture reports — all without requiring dedicated in-house security expertise.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="faq(this)">How does CloudOps reduce cloud infrastructure costs?<span class="faq-chevron">▼</span></button>
+          <div class="faq-a"><p>CloudOps runs a continuous cost intelligence layer across your cloud environment. It identifies idle resources, right-sizing opportunities, reserved instance recommendations, and architectural patterns driving unnecessary spend. Most teams see measurable cost reduction within the first 30 days. The platform also includes budget alerting and anomaly detection to prevent runaway bills before they become significant.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="faq(this)">Can CircuitSoul build custom software platforms for our business?<span class="faq-chevron">▼</span></button>
+          <div class="faq-a"><p>Yes — custom software engineering is a core capability within the CircuitSoul ecosystem. Our engineering team builds full-cycle products: web platforms, mobile applications, backend infrastructure, and internal tooling. Every engagement follows security-first architecture methodology and is designed to integrate cleanly with the CircuitSoul core platforms. Projects begin with a structured scoping phase to define architecture, timelines, and success criteria.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="faq(this)">Is CircuitSoul eligible under the Nigeria Startup Act?<span class="faq-chevron">▼</span></button>
+          <div class="faq-a"><p>CircuitSoul Ltd is a Nigerian technology company positioned to pursue the Startup Label under the Nigeria Startup Act 2022. The Act provides registered Nigerian technology companies access to tax incentives, regulatory fast-tracking, and ecosystem support. Our infrastructure-first product model and clear focus on technology innovation aligns with the Act's definition of eligible startups.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="faq(this)">How does CircuitSoul Flow integrate with existing business systems?<span class="faq-chevron">▼</span></button>
+          <div class="faq-a"><p>Flow connects via REST APIs, webhooks, and pre-built connectors to major business tools — CRMs, ERPs, communication platforms, databases, and cloud services. The platform includes a visual workflow builder for no-code automation, a developer SDK for custom integrations, and a library of pre-built templates for common operational contexts. Standard integrations are typically operational within one business day.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="faq(this)">What is CircuitSoul Connect and when does it launch?<span class="faq-chevron">▼</span></button>
+          <div class="faq-a"><p>CircuitSoul Connect is a task marketplace platform — a two-sided network connecting organizations and individuals who need digital work done with verified professionals who can do it. Unlike the core platforms (Shield, CloudOps, Flow), Connect is a human-execution layer built on top of our infrastructure ecosystem. Waitlist is open now; alpha launch is targeted for Q3 2025.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band rv">
+        <div class="eyebrow" style="margin:0 auto 1.5rem">Get Started</div>
+        <h2>Ready to Build on<br>Secure Infrastructure?</h2>
+        <p>Request a platform demo, start a project, or join the CircuitSoul Connect waitlist. Our engineering team responds within one business day.</p>
+        <div class="cta-acts">
+          <button class="btn btn-solid btn-lg" onclick="go('contact')">Request a Demo</button>
+          <button class="btn btn-wire btn-lg" onclick="go('contact')">Start a Project</button>
+          <button class="btn btn-volt btn-lg" onclick="go('connect')">Join Early Access</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /home -->
+
+<!-- ═══════════════════════════════════════════════════════
+  PRODUCTS PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="pg-products" class="page">
+  <div class="wrap">
+    <section class="prod-hero rv">
+      <div class="eyebrow">Platform Products</div>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.8rem)">Infrastructure Platforms<br><span style="background:linear-gradient(135deg,var(--arc2),var(--volt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Engineered for Africa</span></h1>
+      <p style="font-size:1.05rem;max-width:620px;margin-top:1rem;color:var(--text2)">Three focused software platforms addressing the core infrastructure challenges every African technology company faces: security posture, cloud operations, and operational automation.</p>
+    </section>
+    <section class="section" style="padding-top:3rem">
+      <div class="prod-tab-row rv">
+        <button class="ptab on" id="pt-shield" onclick="setPTab('shield')">🛡 CircuitSoul Shield</button>
+        <button class="ptab" id="pt-cloudops" onclick="setPTab('cloudops')">☁ CloudOps</button>
+        <button class="ptab" id="pt-flow" onclick="setPTab('flow')">⚡ Flow</button>
+      </div>
+      <!-- SHIELD -->
+      <div class="prod-detail on" id="pd-shield">
+        <div>
+          <div class="eyebrow" style="color:var(--arc3)">CircuitSoul Shield</div>
+          <h2 style="margin-bottom:1.25rem">AI-Driven Cybersecurity &amp; Compliance for African Startups</h2>
+          <div class="prod-problem">
+            <div class="prod-problem-lbl">The Problem</div>
+            <p>African startups face sophisticated cyber threats without the budget for dedicated security teams or enterprise-grade tools. Compliance requirements — NDPR, ISO 27001, PCI-DSS — create additional overhead that slows growth and increases investor friction.</p>
+          </div>
+          <h4 style="color:var(--text);margin-bottom:1rem">How Shield Works</h4>
+          <p style="margin-bottom:1.5rem">Shield deploys lightweight monitoring agents across your infrastructure and continuously analyzes network traffic, access patterns, and system configurations against a real-time threat intelligence database. Its AI layer correlates signals across your entire environment to detect threats before they escalate, and generates compliance documentation automatically.</p>
+          <h4 style="color:var(--text);margin-bottom:1rem">Core Capabilities</h4>
+          <ul class="feat-ul">
+            <li>Continuous vulnerability scanning across cloud and on-premise infrastructure</li>
+            <li>AI-driven anomaly detection with contextual risk scoring per asset</li>
+            <li>Real-time cybersecurity posture dashboard with investor-ready reporting</li>
+            <li>Automated compliance mapping: NDPR, ISO 27001, SOC 2, PCI-DSS</li>
+            <li>Security incident alerting with structured remediation guidance</li>
+            <li>Third-party vendor risk assessment and supply chain visibility</li>
+            <li>API security monitoring and credential exposure detection</li>
+          </ul>
+          <div class="chips" style="margin-bottom:2rem">
+            <span class="chip arc">Fintech Startups</span><span class="chip arc">SaaS Companies</span>
+            <span class="chip arc">E-commerce</span><span class="chip arc">HealthTech</span>
+          </div>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+            <button class="btn btn-solid btn-lg" onclick="go('contact')">Request Shield Demo</button>
+            <button class="btn btn-wire btn-lg" onclick="go('contact')">Talk to Engineering</button>
+          </div>
+        </div>
+        <div>
+          <div class="prod-dash">
+            <div class="dash-chrome"><div class="chrome-dots"><div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div></div><div class="chrome-tab">shield.circuitsoul.io — Security Console</div></div>
+            <div class="dash-body">
+              <div class="d-row">
+                <div class="d-tile green"><div class="d-lbl">Score</div><div class="d-val" style="color:var(--volt)">87</div><div class="d-chg up">↑ +4</div></div>
+                <div class="d-tile blue"><div class="d-lbl">Blocked</div><div class="d-val">2,847</div><div class="d-chg up">30d</div></div>
+                <div class="d-tile amber"><div class="d-lbl">Vulns</div><div class="d-val" style="color:var(--amber)">3</div><div class="d-chg" style="color:var(--amber)">1 med</div></div>
+              </div>
+              <div class="d-map">
+                <div class="d-map-head"><span class="d-map-title">14-Day Threat Activity</span><span class="d-map-live">Live</span></div>
+                <div class="spark" id="sparkBars2"></div>
+              </div>
+              <div class="d-log">
+                <div class="d-evt"><div class="d-dot ok"></div><span class="d-evt-text">Production environment secure</span><span class="d-evt-time">08:14</span></div>
+                <div class="d-evt"><div class="d-dot warn"></div><span class="d-evt-text">axios@1.2.1 — patch available</span><span class="d-evt-time">07:32</span></div>
+                <div class="d-evt"><div class="d-dot ok"></div><span class="d-evt-text">NDPR compliance report generated</span><span class="d-evt-time">06:00</span></div>
+                <div class="d-evt"><div class="d-dot ok"></div><span class="d-evt-text">ISO 27001 posture: 94% aligned</span><span class="d-evt-time">05:30</span></div>
+              </div>
+              <div style="margin-top:.9rem;padding:.9rem;background:var(--ink3);border:1px solid rgba(0,242,160,.18);border-radius:var(--r12);display:flex;align-items:center;gap:.75rem">
+                <span style="font-size:1.1rem">🛡</span>
+                <div><div style="font-family:var(--font-m);font-size:.65rem;color:var(--volt);text-transform:uppercase;letter-spacing:.08em">NDPR Compliant</div><div style="font-size:.68rem;color:var(--text3);margin-top:.1rem">Last assessed today · Investor-ready</div></div>
+                <div style="margin-left:auto;font-size:.72rem;color:var(--volt)">✓</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CLOUDOPS -->
+      <div class="prod-detail" id="pd-cloudops">
+        <div>
+          <div class="eyebrow" style="color:#c4b5fd">CircuitSoul CloudOps</div>
+          <h2 style="margin-bottom:1.25rem">Cloud Infrastructure Management &amp; DevSecOps Platform</h2>
+          <div class="prod-problem">
+            <div class="prod-problem-lbl">The Problem</div>
+            <p>Scaling African startups face mounting cloud costs, fragmented tooling, and insecure deployment pipelines. Engineering teams spend disproportionate time on infrastructure management rather than product development, and security is often retrofitted after the fact.</p>
+          </div>
+          <h4 style="color:var(--text);margin-bottom:1rem">How CloudOps Works</h4>
+          <p style="margin-bottom:1.5rem">CloudOps integrates directly with your cloud provider APIs and CI/CD pipelines to create a unified operational layer. It monitors infrastructure health, tracks cost allocation by service and team, enforces security policies in deployment workflows, and surfaces actionable optimization recommendations through a centralized console.</p>
+          <h4 style="color:var(--text);margin-bottom:1rem">Core Capabilities</h4>
+          <ul class="feat-ul">
+            <li>Multi-cloud infrastructure monitoring across AWS, GCP, and Azure</li>
+            <li>Intelligent cost allocation, forecasting, and anomaly detection</li>
+            <li>DevOps pipeline visualization and deployment velocity analytics</li>
+            <li>DevSecOps policy enforcement: security gates in CI/CD workflows</li>
+            <li>Infrastructure-as-Code drift detection and configuration auditing</li>
+            <li>Container and Kubernetes cluster management and optimization</li>
+            <li>Performance analytics with SLA tracking and capacity planning</li>
+          </ul>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2rem">
+            <button class="btn btn-solid btn-lg" onclick="go('contact')">Request CloudOps Demo</button>
+            <button class="btn btn-wire btn-lg" onclick="go('contact')">Talk to Engineering</button>
+          </div>
+        </div>
+        <div>
+          <div class="prod-dash">
+            <div class="dash-chrome"><div class="chrome-dots"><div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div></div><div class="chrome-tab">cloudops.circuitsoul.io — Infrastructure</div></div>
+            <div class="dash-body">
+              <div class="d-row">
+                <div class="d-tile green"><div class="d-lbl">Cost Saved</div><div class="d-val" style="color:var(--volt)">$3.2k</div><div class="d-chg up">↓ 31%</div></div>
+                <div class="d-tile blue"><div class="d-lbl">Deploys</div><div class="d-val">148</div><div class="d-chg up">↑ this mo</div></div>
+                <div class="d-tile amber"><div class="d-lbl">Uptime</div><div class="d-val">99.9%</div><div class="d-chg up">↑ SLA</div></div>
+              </div>
+              <div class="d-map">
+                <div class="d-map-head"><span class="d-map-title">Infrastructure Health</span><span class="d-map-live">Live</span></div>
+                <div style="display:flex;flex-direction:column;gap:.4rem;font-size:.75rem;margin-top:.5rem">
+                  <div style="display:flex;justify-content:space-between"><span style="color:var(--text2)">Production Cluster</span><span style="color:var(--volt);font-family:var(--font-m)">● HEALTHY</span></div>
+                  <div style="display:flex;justify-content:space-between"><span style="color:var(--text2)">Staging Environment</span><span style="color:var(--volt);font-family:var(--font-m)">● HEALTHY</span></div>
+                  <div style="display:flex;justify-content:space-between"><span style="color:var(--text2)">Database Cluster</span><span style="color:var(--amber);font-family:var(--font-m)">● OPTIMIZING</span></div>
+                  <div style="display:flex;justify-content:space-between"><span style="color:var(--text2)">CDN &amp; Edge</span><span style="color:var(--volt);font-family:var(--font-m)">● HEALTHY</span></div>
+                </div>
+              </div>
+              <div class="d-log">
+                <div class="d-evt"><div class="d-dot ok"></div><span class="d-evt-text">Deploy: api-service@v2.4.1 succeeded</span><span class="d-evt-time">08:30</span></div>
+                <div class="d-evt"><div class="d-dot warn"></div><span class="d-evt-text">RDS right-sizing opportunity detected</span><span class="d-evt-time">07:15</span></div>
+                <div class="d-evt"><div class="d-dot ok"></div><span class="d-evt-text">Security gate passed: 0 critical CVEs</span><span class="d-evt-time">06:45</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FLOW -->
+      <div class="prod-detail" id="pd-flow">
+        <div>
+          <div class="eyebrow volt">CircuitSoul Flow</div>
+          <h2 style="margin-bottom:1.25rem">Workflow Automation &amp; Internal Tools Platform</h2>
+          <div class="prod-problem">
+            <div class="prod-problem-lbl">The Problem</div>
+            <p>African SMEs and startups lose enormous productivity to manual, repetitive processes. Building custom internal tools requires engineering resources most companies cannot justify. The result is operational bottlenecks that throttle growth at every stage.</p>
+          </div>
+          <h4 style="color:var(--text);margin-bottom:1rem">How Flow Works</h4>
+          <p style="margin-bottom:1.5rem">Flow provides a visual workflow engine connected to your business systems through a library of pre-built integrations. Teams automate multi-step processes, build custom operational dashboards, and connect applications without engineering overhead on every operational change. A developer SDK enables custom internal tools built on the platform's infrastructure layer.</p>
+          <h4 style="color:var(--text);margin-bottom:1rem">Core Capabilities</h4>
+          <ul class="feat-ul">
+            <li>Visual workflow builder for no-code process automation</li>
+            <li>Pre-built connectors for 100+ business applications and APIs</li>
+            <li>Custom internal dashboards and operational reporting interfaces</li>
+            <li>Multi-system data synchronization with transformation rules</li>
+            <li>Process analytics: bottleneck identification and efficiency metrics</li>
+            <li>Approval workflows with multi-stakeholder routing and audit trails</li>
+            <li>Developer SDK for extending Flow with custom business logic</li>
+          </ul>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2rem">
+            <button class="btn btn-solid btn-lg" onclick="go('contact')">Request Flow Demo</button>
+            <button class="btn btn-wire btn-lg" onclick="go('contact')">Talk to Engineering</button>
+          </div>
+        </div>
+        <div>
+          <div class="prod-dash">
+            <div class="dash-chrome"><div class="chrome-dots"><div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div></div><div class="chrome-tab">flow.circuitsoul.io — Automation Hub</div></div>
+            <div class="dash-body">
+              <div class="d-row">
+                <div class="d-tile green"><div class="d-lbl">Tasks Auto</div><div class="d-val" style="color:var(--volt)">12.4k</div><div class="d-chg up">↑ mo</div></div>
+                <div class="d-tile blue"><div class="d-lbl">Hrs Saved</div><div class="d-val">347</div><div class="d-chg up">↑ qtr</div></div>
+                <div class="d-tile green"><div class="d-lbl">Workflows</div><div class="d-val">24</div><div class="d-chg up">Active</div></div>
+              </div>
+              <div class="d-map">
+                <div class="d-map-head"><span class="d-map-title">Top Workflows</span><span class="d-map-live">Live</span></div>
+                <div style="display:flex;flex-direction:column;gap:.4rem;font-size:.75rem;margin-top:.5rem">
+                  <div style="display:flex;justify-content:space-between"><span style="color:var(--text2)">Invoice Processing</span><span style="color:var(--volt);font-family:var(--font-m)">1,240 runs</span></div>
+                  <div style="display:flex;justify-content:space-between"><span style="color:var(--text2)">Customer Onboarding</span><span style="color:var(--volt);font-family:var(--font-m)">890 runs</span></div>
+                  <div style="display:flex;justify-content:space-between"><span style="color:var(--text2)">Slack → CRM Sync</span><span style="color:var(--volt);font-family:var(--font-m)">3,450 runs</span></div>
+                </div>
+              </div>
+              <div class="d-log">
+                <div class="d-evt"><div class="d-dot ok"></div><span class="d-evt-text">14 workflows executing now</span><div style="width:7px;height:7px;border-radius:50%;background:var(--volt);animation:blip 1.5s infinite;margin-left:auto"></div></div>
+                <div class="d-evt"><div class="d-dot ok"></div><span class="d-evt-text">Weekly report generated &amp; dispatched</span><span class="d-evt-time">06:00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="cta-band rv" style="margin-bottom:4rem">
+      <h2>Not Sure Which Platform You Need?</h2>
+      <p>Our engineering team will assess your infrastructure requirements and recommend the right combination of CircuitSoul platforms for your business stage.</p>
+      <div class="cta-acts">
+        <button class="btn btn-solid btn-lg" onclick="go('contact')">Book Platform Assessment</button>
+        <button class="btn btn-wire btn-lg" onclick="go('services')">Explore Services</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+  SERVICES PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="pg-services" class="page">
+  <div class="wrap">
+    <section style="padding:4.5rem 0 2.5rem">
+      <div class="rv"><div class="eyebrow amber">Ecosystem Services</div>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem)">Technology Infrastructure Services</h1>
+      <p style="font-size:1.05rem;max-width:660px;margin-top:1rem;color:var(--text2)">Expert engineering capabilities enabling organizations to adopt modern infrastructure, build scalable systems, and embed security into every layer of their technology stack. Available standalone or as integrated engagement layers with CircuitSoul core platforms.</p></div>
+    </section>
+    <div style="height:1px;background:var(--rim);margin-bottom:3.5rem"></div>
+    <section class="section" style="padding-top:0">
+      <div class="svc-grid rv">
+        <div class="svc-card"><span class="svc-card-n">01</span><div class="svc-icon-wrap" style="background:rgba(21,87,255,.1);border:1px solid rgba(21,87,255,.22)">🤖</div><h3>AI Agents Development</h3><p>Custom autonomous agents engineered for production-grade reliability — from customer service automation to intelligent data processing pipelines — built for African business environments and data contexts.</p><span class="svc-card-tag">Standalone or with Shield/Flow</span></div>
+        <div class="svc-card"><span class="svc-card-n">02</span><div class="svc-icon-wrap" style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22)">🔭</div><h3>Technology Consulting</h3><p>Strategic guidance on architecture decisions, technology selection, and platform engineering strategy. We inform decisions that compound over time — from greenfield architecture design to complex technology restructures.</p><span class="svc-card-tag">Strategic engagement</span></div>
+        <div class="svc-card"><span class="svc-card-n">03</span><div class="svc-icon-wrap" style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22)">☁</div><h3>Cloud Migration &amp; Setup</h3><p>Architecture-first migration planning and execution across AWS, Google Cloud, and Azure. Complete migration lifecycle from assessment through cutover and post-migration optimization — with zero-downtime commitments and embedded security controls.</p><span class="svc-card-tag">Integrates with CloudOps</span></div>
+        <div class="svc-card"><span class="svc-card-n">04</span><div class="svc-icon-wrap" style="background:rgba(21,87,255,.1);border:1px solid rgba(21,87,255,.22)">💻</div><h3>Custom Web Development</h3><p>Full-stack web application engineering using modern frameworks and security-first architecture. We build scalable, performant web products with production-grade DevOps pipelines from day one.</p><span class="svc-card-tag">Standalone or with Flow</span></div>
+        <div class="svc-card"><span class="svc-card-n">05</span><div class="svc-icon-wrap" style="background:rgba(21,87,255,.1);border:1px solid rgba(21,87,255,.22)">📱</div><h3>Mobile App Development</h3><p>Cross-platform and native mobile apps optimized for African network conditions and device profiles. iOS, Android, React Native with integrated security architecture, offline capability, and cloud backend infrastructure.</p><span class="svc-card-tag">Standalone or with Flow</span></div>
+        <div class="svc-card"><span class="svc-card-n">06</span><div class="svc-icon-wrap" style="background:rgba(0,242,160,.07);border:1px solid rgba(0,242,160,.2)">⚙</div><h3>Custom Software Engineering</h3><p>End-to-end software product development — platforms, APIs, microservices, and enterprise systems. Every engagement is scoped with defined architecture patterns, security requirements, and performance benchmarks before code is written.</p><span class="svc-card-tag">Full lifecycle engagement</span></div>
+        <div class="svc-card"><span class="svc-card-n">07</span><div class="svc-icon-wrap" style="background:rgba(21,87,255,.1);border:1px solid rgba(21,87,255,.22)">🔒</div><h3>Cybersecurity Consulting</h3><p>Penetration testing, security architecture review, incident response preparation, and strategic security advisory. We deliver prioritized remediation roadmaps aligned to your risk tolerance and business objectives.</p><span class="svc-card-tag">Integrates with Shield</span></div>
+        <div class="svc-card"><span class="svc-card-n">08</span><div class="svc-icon-wrap" style="background:rgba(0,242,160,.07);border:1px solid rgba(0,242,160,.2)">🎨</div><h3>UI/UX Design</h3><p>Product design and design systems for technology products. We specialize in translating complex infrastructure and data-heavy interfaces into usable, well-structured experiences — with close engineering collaboration.</p><span class="svc-card-tag">Standalone or with any platform</span></div>
+        <div class="svc-card"><span class="svc-card-n">09</span><div class="svc-icon-wrap" style="background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2)">🛠</div><h3>IT Support Services</h3><p>Managed IT support and infrastructure management for growing companies. Helpdesk operations, hardware support, network management, and system administration — allowing your team to focus on product.</p><span class="svc-card-tag">Managed service</span></div>
+        <div class="svc-card"><span class="svc-card-n">10</span><div class="svc-icon-wrap" style="background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2)">🖥</div><h3>Hardware Procurement &amp; Deployment</h3><p>Enterprise hardware sourcing, specification, procurement, and deployment. We configure and integrate servers, networking equipment, workstations, and security systems with full documentation and lifecycle management.</p><span class="svc-card-tag">Standalone engagement</span></div>
+        <div class="svc-card"><span class="svc-card-n">11</span><div class="svc-icon-wrap" style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22)">🎓</div><h3>Technology Training</h3><p>Structured technical training for engineering teams adopting modern infrastructure practices. Programs cover cloud architecture, DevSecOps, platform engineering, cybersecurity operations, and CircuitSoul platform onboarding.</p><span class="svc-card-tag">Cohort or custom programs</span></div>
+      </div>
+    </section>
+    <div class="cta-band rv" style="margin-bottom:4rem">
+      <h2>Build with Expert Engineering Support</h2>
+      <p>Describe your project or infrastructure challenge. Our team responds within one business day with an initial assessment.</p>
+      <div class="cta-acts">
+        <button class="btn btn-solid btn-lg" onclick="go('contact')">Start a Project</button>
+        <button class="btn btn-wire btn-lg" onclick="go('contact')">Request Consultation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+  CONNECT PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="pg-connect" class="page">
+  <div class="wrap">
+    <div class="connect-hero-wrap rv">
+      <div class="cs-banner" style="margin:0 auto 1.5rem">⏳ Coming Soon — Q3 2025 Alpha</div>
+      <h1 style="font-size:clamp(2.4rem,5vw,4.2rem)">CircuitSoul <span style="background:linear-gradient(135deg,var(--amber),#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Connect</span></h1>
+      <p style="font-size:1.1rem;max-width:580px;margin:1.25rem auto 0;color:var(--text2)">A task marketplace connecting organizations and individuals with verified technical and creative professionals for any digital service — from cloud setup to content creation, development to design.</p>
+      <div style="background:var(--ink2);border:1px solid var(--rim2);border-radius:var(--r20);padding:3rem;max-width:680px;margin:3rem auto">
+        <h3 style="margin-bottom:.5rem">Join the Early Access Waitlist</h3>
+        <p style="font-size:.88rem;margin-bottom:2rem">Be among the first to access CircuitSoul Connect. Tell us whether you're posting tasks or offering services.</p>
+        <div style="display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:.85rem">
+          <input class="wi-input" type="text" placeholder="Your name" id="cn-name">
+          <input class="wi-input" type="email" placeholder="Email address" id="cn-email">
+        </div>
+        <select class="wi-input" id="cn-type" style="width:100%;margin-bottom:.85rem">
+          <option value="">I want to join as a...</option>
+          <option>Client — post tasks and hire professionals</option>
+          <option>Professional — offer services and find work</option>
+          <option>Both</option>
+        </select>
+        <button class="btn btn-volt btn-lg" style="width:100%;justify-content:center" onclick="submitWL('cn-email')">Join Waitlist →</button>
+        <div id="cn-success" style="display:none;margin-top:1.25rem;padding:1rem;background:var(--volt-glow);border:1px solid rgba(0,242,160,.25);border-radius:var(--r12);color:var(--volt);text-align:center;font-size:.9rem">✓ You're on the list. We'll notify you at launch.</div>
+        <p style="font-size:.75rem;color:var(--text4);margin-top:1rem;text-align:center">No spam. One launch notification. Unsubscribe anytime.</p>
+      </div>
+    </div>
+    <section class="section" style="padding-top:0;max-width:1000px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:3rem" class="rv">
+        <div class="eyebrow amber" style="margin:0 auto 1rem">How Connect Works</div>
+        <h2>Post. Match. Build.</h2>
+      </div>
+      <div class="how-grid rv d1">
+        <div class="how-card"><div class="how-num">Step 01 →</div><div style="font-size:1.6rem;margin-bottom:.75rem">📋</div><h4>Post Your Task</h4><p>Describe your project, requirements, timeline, and budget. Our structured task format ensures professionals receive everything needed to quote accurately.</p></div>
+        <div class="how-card"><div class="how-num">Step 02 →</div><div style="font-size:1.6rem;margin-bottom:.75rem">🎯</div><h4>Get Matched</h4><p>Connect's matching engine surfaces verified relevant professionals. Review profiles, portfolios, and ratings. Chat before committing to any engagement.</p></div>
+        <div class="how-card"><div class="how-num">Step 03 →</div><div style="font-size:1.6rem;margin-bottom:.75rem">🔐</div><h4>Work Securely</h4><p>Escrow-protected payments, milestone-based releases, and dispute resolution. Funds are protected until you confirm delivery meets requirements.</p></div>
+        <div class="how-card"><div class="how-num">Step 04 →</div><div style="font-size:1.6rem;margin-bottom:.75rem">⭐</div><h4>Build &amp; Grow</h4><p>Rate the professional, build an ongoing relationship, and access the CircuitSoul ecosystem of platforms to support your expanding digital infrastructure.</p></div>
+      </div>
+      <div style="margin-top:3rem;padding:2rem;background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r20);text-align:center" class="rv d2">
+        <h4 style="margin-bottom:.5rem">Launch Categories</h4>
+        <p style="font-size:.88rem;margin-bottom:1.5rem;max-width:480px;margin-left:auto;margin-right:auto">Connect will initially focus on high-demand technical and creative professional categories across Africa.</p>
+        <div class="cat-grid">
+          <span class="chip arc">Software Development</span><span class="chip arc">Cloud Engineering</span>
+          <span class="chip volt">UI/UX Design</span><span class="chip volt">Cybersecurity</span>
+          <span class="chip pur">AI/ML Development</span><span class="chip amb">Content Creation</span>
+          <span class="chip arc">DevOps Engineering</span><span class="chip volt">Mobile Development</span>
+          <span class="chip amb">Tech Consulting</span><span class="chip pur">Data Engineering</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+  BLOG PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="pg-blog" class="page">
+  <div class="wrap">
+    <section style="padding:4.5rem 0 2.5rem">
+      <div class="rv"><div class="eyebrow">Engineering Intelligence</div>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem)">CircuitSoul Blog</h1>
+      <p style="font-size:1.05rem;max-width:560px;margin-top:1rem;color:var(--text2)">Infrastructure insights, security research, cloud architecture patterns, and technology strategy for African startups and engineering teams.</p></div>
+    </section>
+    <div style="height:1px;background:var(--rim);margin-bottom:3.5rem"></div>
+    <section class="section" style="padding-top:0">
+      <div class="blog-grid rv">
+        <div class="blog-card"><div class="blog-thumb t1">🔒</div><div class="blog-body"><div class="blog-meta"><span class="blog-cat">Cybersecurity</span><span class="blog-date">Dec 2024</span><span class="blog-read-time">8 min read</span></div><h3>The 7 Cybersecurity Mistakes Nigerian Startups Make (And How to Fix Them)</h3><p>From hardcoded API keys in GitHub repos to unencrypted customer data, most security failures in African startups are entirely preventable.</p><div class="blog-footer"><div class="blog-author"><div class="blog-av">CS</div>CircuitSoul Engineering</div><span class="blog-arrow">→</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb t2">☁</div><div class="blog-body"><div class="blog-meta"><span class="blog-cat">Cloud Infrastructure</span><span class="blog-date">Dec 2024</span><span class="blog-read-time">12 min read</span></div><h3>How African Startups Can Reduce Cloud Infrastructure Costs by 30–40%</h3><p>Practical optimization strategies for AWS, GCP, and Azure that engineering teams can implement without architecture rewrites or significant downtime.</p><div class="blog-footer"><div class="blog-author"><div class="blog-av">CS</div>CircuitSoul Engineering</div><span class="blog-arrow">→</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb t3">⚡</div><div class="blog-body"><div class="blog-meta"><span class="blog-cat">DevSecOps</span><span class="blog-date">Nov 2024</span><span class="blog-read-time">10 min read</span></div><h3>Building Secure SaaS Platforms: Architecture Decisions That Compound</h3><p>Security is an architectural decision, not a compliance checklist. These early-stage design choices make the difference between a secure-by-default platform and one that's retrofitted.</p><div class="blog-footer"><div class="blog-author"><div class="blog-av">CS</div>CircuitSoul Engineering</div><span class="blog-arrow">→</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb t4">🇳🇬</div><div class="blog-body"><div class="blog-meta"><span class="blog-cat">Nigeria Startup Act</span><span class="blog-date">Nov 2024</span><span class="blog-read-time">7 min read</span></div><h3>What the Nigeria Startup Act Means for Your Technology Company's Infrastructure Requirements</h3><p>The NSA creates new opportunities but also introduces data governance obligations. What fintech and SaaS companies need to know about technical compliance.</p><div class="blog-footer"><div class="blog-author"><div class="blog-av">CS</div>CircuitSoul Engineering</div><span class="blog-arrow">→</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb t5">🏗</div><div class="blog-body"><div class="blog-meta"><span class="blog-cat">Platform Engineering</span><span class="blog-date">Oct 2024</span><span class="blog-read-time">9 min read</span></div><h3>Why African Engineering Teams Need Internal Developer Platforms in 2025</h3><p>IDPs are no longer a luxury for large engineering organizations. The economics of platform engineering are increasingly compelling for African startups at Series A and beyond.</p><div class="blog-footer"><div class="blog-author"><div class="blog-av">CS</div>CircuitSoul Engineering</div><span class="blog-arrow">→</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb t6">🤖</div><div class="blog-body"><div class="blog-meta"><span class="blog-cat">AI Infrastructure</span><span class="blog-date">Oct 2024</span><span class="blog-read-time">11 min read</span></div><h3>Running AI Workloads Cost-Effectively on African Infrastructure: A Practical Architecture Guide</h3><p>GPU costs, latency constraints, and data residency requirements create unique challenges for African companies building AI-powered products.</p><div class="blog-footer"><div class="blog-author"><div class="blog-av">CS</div>CircuitSoul Engineering</div><span class="blog-arrow">→</span></div></div></div>
+      </div>
+    </section>
+    <div class="sub-strip rv" style="margin-bottom:5rem">
+      <div class="eyebrow" style="margin:0 auto 1rem">Newsletter</div>
+      <h3>Engineering Intelligence in Your Inbox</h3>
+      <p style="font-size:.88rem;margin-top:.5rem">Infrastructure insights and security research for African engineering teams. No noise — substantive analysis only.</p>
+      <div class="sub-row"><input class="wi-input" type="email" placeholder="engineer@yourstartup.io" id="blogEmail"><button class="btn btn-solid" onclick="submitBlog()">Subscribe →</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+  ABOUT PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="pg-about" class="page">
+  <div class="wrap">
+    <section style="padding:4.5rem 0 2.5rem">
+      <div class="rv"><div class="eyebrow">About CircuitSoul</div>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.8rem);max-width:720px">Building the Digital Infrastructure<br><span style="background:linear-gradient(135deg,var(--arc2),var(--volt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">That Powers Africa's Future</span></h1></div>
+    </section>
+    <div style="height:1px;background:var(--rim);margin-bottom:4rem"></div>
+    <section class="about-split rv">
+      <div>
+        <h2 style="margin-bottom:1.5rem">Our Mission</h2>
+        <p style="font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem">CircuitSoul is building the digital infrastructure that powers Africa's next generation of startups and technology-driven businesses. We believe the critical gap in Africa's technology ecosystem is not talent or capital — it is infrastructure.</p>
+        <p style="font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem">African startups deserve access to the same caliber of security, cloud operations, and automation tooling available to their counterparts in New York, London, or Singapore — engineered specifically for the African operating environment: bandwidth constraints, regulatory context, and local business logic.</p>
+        <p style="font-size:1.05rem;line-height:1.8">CircuitSoul is a Nigerian technology company committed to building the software backbone that eliminates infrastructure as a constraint on African business growth.</p>
+        <div class="about-vals">
+          <div class="val-card"><div class="val-icon">🏗</div><h4>Infrastructure-First</h4><p>We build platforms before services. Infrastructure compounds; consulting doesn't.</p></div>
+          <div class="val-card"><div class="val-icon">🔒</div><h4>Security by Architecture</h4><p>Security is a design constraint, not a compliance feature. Embedded in everything.</p></div>
+          <div class="val-card"><div class="val-icon">🌍</div><h4>Africa-Native Context</h4><p>Engineered for African bandwidth, regulation, and infrastructure realities.</p></div>
+          <div class="val-card"><div class="val-icon">📐</div><h4>Engineering Excellence</h4><p>Every system architected for scale, reliability, and maintainability from day one.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="profile-card">
+          <div style="font-size:3rem;opacity:.4;margin-bottom:1rem;position:relative;z-index:1">⚡</div>
+          <h3 style="position:relative;z-index:1">CircuitSoul Ltd</h3>
+          <p style="font-size:.88rem;color:var(--text3);position:relative;z-index:1">Technology Infrastructure Company<br>Lagos &amp; Abuja, Nigeria</p>
+          <div class="nsa-pill">🇳🇬 Nigeria Startup Act — Eligible</div>
+          <div style="margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;text-align:left;position:relative;z-index:1">
+            <div style="padding:1rem;background:var(--ink3);border:1px solid var(--rim);border-radius:var(--r12)">
+              <div style="font-family:var(--font-m);font-size:.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">Core Focus Areas</div>
+              <div class="chips" style="margin:0"><span class="chip arc">Cybersecurity</span><span class="chip volt">Cloud Infrastructure</span><span class="chip pur">Automation</span></div>
+            </div>
+            <div style="padding:1rem;background:var(--ink3);border:1px solid var(--rim);border-radius:var(--r12)">
+              <div style="font-family:var(--font-m);font-size:.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem">Target Market</div>
+              <p style="font-size:.83rem;margin:0">African startups, SMEs, and technology-driven businesses across Nigeria and Sub-Saharan Africa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="metrics-row rv">
+      <div class="m-card"><div class="m-num" style="color:var(--arc2)">3</div><div class="m-lbl">Core Platform Products</div></div>
+      <div class="m-card"><div class="m-num" style="color:var(--volt)">11+</div><div class="m-lbl">Engineering Capabilities</div></div>
+      <div class="m-card"><div class="m-num" style="color:#c4b5fd">Pan</div><div class="m-lbl">African Market Focus</div></div>
+      <div class="m-card"><div class="m-num" style="color:var(--amber)">∞</div><div class="m-lbl">Scalable Infrastructure</div></div>
+    </div>
+    <div class="cta-band rv" style="margin-bottom:4rem">
+      <h2>Partner with CircuitSoul</h2>
+      <p>We are actively seeking strategic partners, investors, and enterprise customers who share our conviction that Africa's next generation of technology companies deserves world-class infrastructure.</p>
+      <div class="cta-acts"><button class="btn btn-solid btn-lg" onclick="go('contact')">Explore Partnership</button><button class="btn btn-wire btn-lg" onclick="go('contact')">Investor Inquiries</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+  CONTACT PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="pg-contact" class="page">
+  <div class="wrap">
+    <section style="padding:4.5rem 0 2.5rem">
+      <div class="rv"><div class="eyebrow">Get in Touch</div>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem)">Let's Build Something Significant</h1>
+      <p style="font-size:1.05rem;max-width:580px;margin-top:1rem;color:var(--text2)">Request a platform demo, start a project, explore a partnership, or ask a technical question. Our engineering team responds within one business day.</p></div>
+    </section>
+    <div style="height:1px;background:var(--rim);margin-bottom:4rem"></div>
+    <section class="section" style="padding-top:0">
+      <div class="contact-grid rv">
+        <div>
+          <h3 style="margin-bottom:1.5rem;font-size:1.2rem">How to Reach Us</h3>
+          <div class="c-info-block"><span class="c-info-icon">✉</span><div><div class="c-info-lbl">General Inquiries</div><div class="c-info-val">hello@circuitsoul.io</div></div></div>
+          <div class="c-info-block"><span class="c-info-icon">📡</span><div><div class="c-info-lbl">Platform Demo Requests</div><div class="c-info-val">demo@circuitsoul.io</div></div></div>
+          <div class="c-info-block"><span class="c-info-icon">🤝</span><div><div class="c-info-lbl">Partnerships &amp; Investment</div><div class="c-info-val">partners@circuitsoul.io</div></div></div>
+          <div class="c-info-block"><span class="c-info-icon">🔒</span><div><div class="c-info-lbl">Security &amp; Vulnerability Reports</div><div class="c-info-val">security@circuitsoul.io</div></div></div>
+          <div class="c-info-block"><span class="c-info-icon">📍</span><div><div class="c-info-lbl">Location</div><div style="font-size:.83rem;color:var(--text2);margin-top:.15rem">Lagos &amp; Abuja, Nigeria</div></div></div>
+          <div style="background:var(--ink2);border:1px solid var(--rim);border-radius:var(--r12);padding:1.5rem;margin-top:.5rem">
+            <h4 style="font-size:.9rem;margin-bottom:.85rem">Follow Our Engineering Updates</h4>
+            <div class="socials">
+              <div class="social" title="LinkedIn"><span style="font-size:.8rem;font-weight:700">in</span></div>
+              <div class="social" title="Twitter/X">𝕏</div>
+              <div class="social" title="GitHub">⌨</div>
+              <div class="social" title="YouTube">▶</div>
+              <div class="social" title="Instagram">◎</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="c-form">
+            <h3 style="margin-bottom:.5rem;font-size:1.2rem">Send a Message</h3>
+            <p style="font-size:.86rem;margin-bottom:1.75rem">Fill out the form and we'll route your inquiry to the right team member.</p>
+            <div class="fg-2">
+              <div class="fg"><label>First Name</label><input type="text" placeholder="Chidi"></div>
+              <div class="fg"><label>Last Name</label><input type="text" placeholder="Okafor"></div>
+            </div>
+            <div class="fg"><label>Business Email</label><input type="email" placeholder="chidi@yourstartup.ng"></div>
+            <div class="fg"><label>Company</label><input type="text" placeholder="Your Startup Ltd"></div>
+            <div class="fg">
+              <label>Inquiry Type</label>
+              <select><option>Platform Demo Request</option><option>Project Inquiry</option><option>Partnership / Investment</option><option>Technical Question</option><option>Press Inquiry</option><option>Other</option></select>
+            </div>
+            <div class="fg"><label>Message</label><textarea placeholder="Describe your requirements, project scope, or question..."></textarea></div>
+            <button class="btn btn-solid btn-lg" style="width:100%;justify-content:center" onclick="submitContact()">Send Message →</button>
+            <p style="font-size:.75rem;color:var(--text4);margin-top:1rem;text-align:center">We respond to all inquiries within 1 business day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+  FOOTER
+═══════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo">
+          <div class="nav-mark">⚡</div>
+          CircuitSoul
+        </div>
+        <p>Building the digital infrastructure that powers Africa's next generation of technology companies. Security-first. Engineering-led. Africa-native.</p>
+        <div class="nsa-pill" style="display:inline-flex;margin-top:.75rem">🇳🇬 Nigeria Startup Act — Eligible</div>
+        <div class="socials">
+          <div class="social">in</div><div class="social">𝕏</div><div class="social">⌨</div><div class="social">▶</div>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Platforms</h5>
+        <ul>
+          <li><a onclick="go('products');setPTab('shield')">CircuitSoul Shield</a></li>
+          <li><a onclick="go('products');setPTab('cloudops')">CircuitSoul CloudOps</a></li>
+          <li><a onclick="go('products');setPTab('flow')">CircuitSoul Flow</a></li>
+          <li><a onclick="go('connect')">CircuitSoul Connect ↗</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a onclick="go('services')">AI Agents</a></li>
+          <li><a onclick="go('services')">Cloud Migration</a></li>
+          <li><a onclick="go('services')">Custom Software</a></li>
+          <li><a onclick="go('services')">Cybersecurity</a></li>
+          <li><a onclick="go('services')">UI/UX Design</a></li>
+          <li><a onclick="go('services')">Technology Training</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a onclick="go('about')">About Us</a></li>
+          <li><a onclick="go('blog')">Blog</a></li>
+          <li><a onclick="go('contact')">Contact</a></li>
+          <li><a onclick="go('contact')">Partnerships</a></li>
+          <li><a onclick="go('contact')">Investor Relations</a></li>
+          <li><a>Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 CircuitSoul Ltd. All rights reserved. Incorporated in Nigeria.</p>
+      <div class="foot-legal"><a>Privacy Policy</a><a>Terms of Service</a><a>Security</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════ */
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+function lerpCursor(){rx+=(mx-rx)*.14;ry+=(my-ry)*.14;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(lerpCursor)}
+lerpCursor();
+document.addEventListener('mousedown',()=>{cur.style.transform='translate(-50%,-50%) scale(1.5)';curR.style.transform='translate(-50%,-50%) scale(.75)'});
+document.addEventListener('mouseup',()=>{cur.style.transform='';curR.style.transform=''});
+// Card mouse glow
+document.querySelectorAll('.bc').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width*100).toFixed(1);
+    const y=((e.clientY-r.top)/r.height*100).toFixed(1);
+    card.style.setProperty('--mx',x+'%');card.style.setProperty('--my',y+'%');
+  });
+});
+
+/* ═══════════════════════════════════════
+   NAVBAR SCROLL
+═══════════════════════════════════════ */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+/* ═══════════════════════════════════════
+   PAGE ROUTING
+═══════════════════════════════════════ */
+const pages=['home','products','services','connect','blog','about','contact'];
+function go(id){
+  pages.forEach(p=>{
+    const pg=document.getElementById('pg-'+p);
+    const nl=document.getElementById('nl-'+p);
+    if(pg) pg.classList.toggle('on',p===id);
+    if(nl) nl.classList.toggle('on',p===id);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(()=>initReveal(),150);
+  setTimeout(()=>buildSpark('sparkBars2'),300);
+}
+
+/* ═══════════════════════════════════════
+   MOBILE MENU
+═══════════════════════════════════════ */
+let mobOpen=false;
+function toggleMob(){mobOpen=!mobOpen;document.getElementById('mobMenu').classList.toggle('open',mobOpen)}
+
+/* ═══════════════════════════════════════
+   PRODUCT TABS
+═══════════════════════════════════════ */
+function setPTab(t){
+  ['shield','cloudops','flow'].forEach(x=>{
+    document.getElementById('pt-'+x).classList.toggle('on',x===t);
+    document.getElementById('pd-'+x).classList.toggle('on',x===t);
+  });
+}
+
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+function faq(btn){
+  const a=btn.nextElementSibling,wasOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(q=>{q.classList.remove('open');q.nextElementSibling.classList.remove('open')});
+  if(!wasOpen){btn.classList.add('open');a.classList.add('open')}
+}
+
+/* ═══════════════════════════════════════
+   SPARKLINE BARS
+═══════════════════════════════════════ */
+const sparkData=[22,38,18,55,42,70,35,65,28,80,48,60,45,72];
+function buildSpark(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const max=Math.max(...sparkData);
+  el.innerHTML=sparkData.map((v,i)=>`<div class="sp ${v>55?'arc hi':v>40?'volt':'arc'}" style="height:${(v/max*100).toFixed(0)}%;animation-delay:${i*.05}s" title="${v} threats"></div>`).join('');
+}
+buildSpark('sparkBars');
+
+/* ═══════════════════════════════════════
+   TICKER
+═══════════════════════════════════════ */
+const tickData=[
+  {label:'CircuitSoul Shield',val:'Active',dir:''},
+  {label:'Threats Blocked (MTD)',val:'2,847',dir:'up'},
+  {label:'Cloud Cost Savings',val:'31%↓',dir:'up'},
+  {label:'Workflows Automated',val:'12.4k',dir:'up'},
+  {label:'NSA Startup Label',val:'Eligible',dir:''},
+  {label:'NDPR Compliance',val:'Active',dir:''},
+  {label:'System Uptime',val:'99.9%',dir:'up'},
+  {label:'Security Score',val:'87/100',dir:'up'},
+  {label:'Connect Launch',val:'Q3 2025',dir:''},
+  {label:'Engineering Capabilities',val:'11+',dir:''},
+];
+function buildTicker(){
+  const t=document.getElementById('tickerTrack');
+  const dbl=[...tickData,...tickData];
+  t.innerHTML=dbl.map(d=>`<div class="tick-item">${d.label} <span class="${d.dir==='up'?'tick-up':d.dir==='dn'?'tick-dn':''}">${d.val}</span></div>`).join('');
+}
+buildTicker();
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')});
+  },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.page.on .rv:not(.vis)').forEach(el=>obs.observe(el));
+}
+initReveal();
+
+/* ═══════════════════════════════════════
+   FORMS
+═══════════════════════════════════════ */
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg||'✓ You\'re on the waitlist!';
+  t.classList.add('in');
+  setTimeout(()=>t.classList.remove('in'),3800);
+}
+function submitWL(id){
+  const em=document.getElementById(id);
+  if(!em||!em.value||!em.value.includes('@')){toast('⚠ Please enter a valid email address');return}
+  const suc=document.getElementById('cn-success');
+  if(suc)suc.style.display='block';
+  toast('✓ You\'re on the waitlist! See you at launch.');
+}
+function submitBlog(){
+  const em=document.getElementById('blogEmail');
+  if(!em||!em.value||!em.value.includes('@')){toast('⚠ Enter a valid email address');return}
+  toast('✓ Subscribed to CircuitSoul Engineering Intelligence!');
+}
+function submitContact(){toast('✓ Message received. We\'ll respond within 1 business day.')}
+
+/* ═══════════════════════════════════════
+   SPARKLINE ANIMATION LOOP
+═══════════════════════════════════════ */
+let sparkInterval=null;
+function startSparkAnim(){
+  if(sparkInterval) return;
+  sparkInterval=setInterval(()=>{
+    const bars=document.querySelectorAll('#sparkBars .sp,#sparkBars2 .sp');
+    if(!bars.length)return;
+    const rand=Math.floor(Math.random()*bars.length);
+    bars.forEach((b,i)=>{
+      b.classList.toggle('hi',Math.random()>.55);
+    });
+  },1800);
+}
+startSparkAnim();
+</script>
+</body>
+</html>
